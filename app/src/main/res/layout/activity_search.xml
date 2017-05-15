@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.ContentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchParent"
+    tools:context="ua.nure.khmelevskoy.recipemanager.activity.SearchActivity">
+
+    <android.support.v7.widget.LinearLayoutCompat style="@style/MatchParent.Vertical">
+
+        <SearchView
+            android:id="@+id/search_view"
+            style="@style/WideContent"
+            android:iconifiedByDefault="false"
+            android:queryHint="Type ingredients you have" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            style="@style/MatchParent" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_recipe_button"
+        style="@style/WrapContent"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/ic_plus">
+
+    </android.support.design.widget.FloatingActionButton>
+</android.support.v7.widget.ContentFrameLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/WideContent"
+    android:layout_margin="10dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true">
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/WideContent"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/recipe_title_text_view"
+            style="@style/WrapContent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Recipe title" />
+
+        <TextView
+            android:id="@+id/duration_text_view"
+            style="@style/WrapContent"
+            android:drawableLeft="@drawable/ic_timelapse_black_24dp"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_title_text_view"
+            tools:text="34m" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>
