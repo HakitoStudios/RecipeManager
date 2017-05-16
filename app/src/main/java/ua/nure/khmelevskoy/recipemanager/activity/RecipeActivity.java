@@ -56,28 +56,33 @@ public class RecipeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.done_menu, menu);
+        getMenuInflater().inflate(R.menu.recipe_menu, menu);
+        menu.findItem(R.id.delete).setVisible(recipeId != EMPTY_ID);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        long duration = 0;
+        try {
+            duration = Long.valueOf(durationEditText.getText().toString());
+        } catch (NumberFormatException e) {
+            //failed
+        }
+        Recipe recipe = new Recipe(titleEditText.getText().toString(),
+                duration,
+                ingredientsEditText.getText().toString());
+        if (recipeId == EMPTY_ID) {
+            recipeRepository.update(recipe);
+        } else {
+            recipe.setId(recipeId);
+
+        }
         if (item.getItemId() == R.id.done) {
-            long duration = 0;
-            try {
-                duration = Long.valueOf(durationEditText.getText().toString());
-            } catch (NumberFormatException e) {
-                //failed
-            }
-            Recipe recipe = new Recipe(titleEditText.getText().toString(),
-                    duration,
-                    ingredientsEditText.getText().toString());
-            if (recipeId == EMPTY_ID) {
-                recipeRepository.update(recipe);
-            } else {
-                recipe.setId(recipeId);
-                recipeRepository.update(recipe);
-            }
+            recipeRepository.update(recipe);
+            finish();
+        } else if (item.getItemId() == R.id.delete) {
+            recipeRepository.delete(recipe);
             finish();
         }
         return super.onOptionsItemSelected(item);
