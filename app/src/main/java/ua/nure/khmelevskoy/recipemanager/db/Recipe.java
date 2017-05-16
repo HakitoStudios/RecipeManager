@@ -8,7 +8,7 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 import java.util.List;
 
 @Table(database = RecipeDatabase.class)
-public class RecipeDbModel extends BaseModel{
+public class Recipe extends BaseModel{
     @Column
     @PrimaryKey
     Long id;
@@ -22,13 +22,13 @@ public class RecipeDbModel extends BaseModel{
     @Column
     String ingredients;
 
-    public RecipeDbModel(String title, long duration, String ingredients) {
+    public Recipe(String title, long duration, String ingredients) {
         this.title = title;
         this.duration = duration;
         this.ingredients = ingredients;
     }
 
-    public RecipeDbModel() {
+    public Recipe() {
     }
 
     public Long getId() {

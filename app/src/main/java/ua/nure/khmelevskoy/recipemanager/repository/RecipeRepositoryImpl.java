@@ -4,21 +4,27 @@ import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.List;
 
-import ua.nure.khmelevskoy.recipemanager.db.RecipeDbModel;
+import ua.nure.khmelevskoy.recipemanager.db.Recipe;
+import ua.nure.khmelevskoy.recipemanager.db.Recipe_Table;
 
-class RecipeRepositoryImpl implements RecipeRepository {
+public class RecipeRepositoryImpl implements RecipeRepository {
     @Override
-    public void delete(RecipeDbModel item) {
+    public void delete(Recipe item) {
         item.delete();
     }
 
     @Override
-    public void update(RecipeDbModel item) {
+    public void update(Recipe item) {
         item.save();
     }
 
     @Override
-    public List<RecipeDbModel> getAll() {
-        return new Select().from(RecipeDbModel.class).queryList();
+    public List<Recipe> getAll() {
+        return new Select().from(Recipe.class).queryList();
+    }
+
+    @Override
+    public Recipe findById(long id) {
+        return new Select().from(Recipe.class).where(Recipe_Table.id.is(id)).querySingle();
     }
 }

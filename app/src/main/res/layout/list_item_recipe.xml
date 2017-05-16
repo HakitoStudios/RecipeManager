@@ -5,7 +5,8 @@
     style="@style/WideContent"
     android:layout_margin="10dp"
     app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:id="@+id/card_view">
 
     <android.support.constraint.ConstraintLayout
         style="@style/WideContent"
