@@ -73,10 +73,9 @@ public class RecipeActivity extends AppCompatActivity {
                 duration,
                 ingredientsEditText.getText().toString());
         if (recipeId == EMPTY_ID) {
-            recipeRepository.update(recipe);
+            //creating
         } else {
             recipe.setId(recipeId);
-
         }
         if (item.getItemId() == R.id.done) {
             recipeRepository.update(recipe);
